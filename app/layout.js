@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   // metadataBase: new URL("https://www.wastesync.com"),
-  title: "Halal Kitchen",
+  title: "ICIC London",
   description:
-    "Halal Kitchen is a platform for finding catering services in Toronto.",
+    "ICIC London is a group of companies that provide a range of services to the construction industry.",
 
 };
 
