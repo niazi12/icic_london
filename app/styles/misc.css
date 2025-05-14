@@ -1,0 +1,83 @@
+/* Modern thin scrollbar styling */
+/* For WebKit browsers (Chrome, Safari, Edge) */
+@layer components {
+
+  
+  /* Define the transition-gpu class directly with CSS properties */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Apply the class directly instead of using the utility */
+  .hover-lift {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    transition-duration: 300ms;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+/* Custom scroll bar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--foreground) 15%, transparent);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--foreground) 25%, transparent);
+}
+
+/* Standard scrollbar styling for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--foreground) 15%, transparent) transparent;
+}
+
+/* Add scrollbar-hide utility class */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Section animations */
+.section-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image loading animation */
+.image-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
