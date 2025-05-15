@@ -1,76 +1,52 @@
 "use client"
-import { 
-  Wrench,
-  Hammer,
-  Building2,
-  Settings2,
-  Construction,
-  Phone
-} from "lucide-react";
-import ServiceCard from "../custom/ServiceCard";
 import { Button } from "../ui/button";
 import Link from "next/link";
-
-
+import ServiceCard from "../custom/ServiceCard";
+import servicesData from "../data/services.json";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export const ServiceSection = () => {
   return (
-    <section className="py-16 bg-gray-50">
-    <div className="container mx-auto px-4">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold mb-4">Our Services</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          We provide comprehensive building and maintenance services for both domestic 
-          and commercial clients throughout Greater London.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <ServiceCard 
-          title="Electrical Services" 
-          description="Professional installation and maintenance for all electrical systems with 18th Edition certification." 
-          icon={Wrench} 
-        />
-        <ServiceCard 
-          title="Plumbing Services" 
-          description="Expert plumbing installation and repairs for residential and commercial properties." 
-          icon={Hammer} 
-        />
-        <ServiceCard 
-          title="Lift Installation" 
-          description="Specialized lift installation and maintenance services for buildings of all sizes." 
-          icon={Building2} 
-        />
-        <ServiceCard 
-          title="Plastering & Joinery" 
-          description="High-quality plastering and joinery services delivered by skilled craftsmen." 
-          icon={Settings2} 
-        />
-        <ServiceCard 
-          title="Building & Construction" 
-          description="Comprehensive building and construction services for new builds and renovations." 
-          icon={Construction} 
-        />
-        <div className="bg-business-700 rounded-lg shadow-lg p-6 text-white flex flex-col justify-between">
-          <div>
-            <h3 className="text-xl font-semibold mb-2">24/7 Emergency Service</h3>
-            <p className="mb-4">Available around the clock for urgent maintenance and repairs.</p>
-          </div>
-          <Button asChild variant="secondary" className="w-full">
-            <a href="tel:02035760727">
-              <Phone className="mr-2 h-5 w-5" />
-              Call: 02035760727
-            </a>
+    <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/geometry.png')] pointer-events-none" aria-hidden="true" />
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 rounded-full bg-business-50 text-business-700 font-semibold text-sm shadow-sm">
+            <Sparkles className="w-4 h-4 text-business-600" />
+            What We Offer
+          </span>
+          <h2 className="text-4xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-business-800 to-business-600 drop-shadow-lg">
+            Our Services
+          </h2>
+          <div className="h-1 w-20 bg-business-600 mx-auto mb-6 rounded-full"></div>
+          <p className="text-gray-600 text-lg">
+            We provide comprehensive building and maintenance services for both domestic 
+            and commercial clients throughout Greater London.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {servicesData.map((service, idx) => (
+            <div key={service.id} className="animate-fadeIn" style={{ animationDelay: `${idx * 80}ms` }}>
+              <ServiceCard service={service} />
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-16">
+          <Button 
+            asChild 
+            className="bg-business-700 hover:bg-business-800 px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group text-lg font-semibold"
+            size="lg"
+          >
+            <Link href="/services" className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1">
+                <Sparkles className="w-5 h-5 text-yellow-400" />
+                View All Services
+              </span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </Button>
         </div>
       </div>
-
-      <div className="text-center mt-12">
-        <Button asChild className="bg-business-700 hover:bg-business-800">
-          <Link href="/services">View All Services</Link>
-        </Button>
-      </div>
-    </div>
-  </section>
+    </section>
   );
 };

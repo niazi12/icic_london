@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Electrical Services",
+    "description": "Professional installation and maintenance for all electrical systems with 18th Edition certification.",
+    "icon": "Wrench",
+    "details": [
+      "Full electrical installations",
+      "Electrical safety inspections",
+      "Rewiring",
+      "Fault finding and repairs",
+      "Emergency electrical repairs",
+      "Lighting installations",
+      "Consumer unit upgrades",
+      "Commercial electrical work"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Plumbing Services",
+    "description": "Expert plumbing installation and repairs for residential and commercial properties.",
+    "icon": "Hammer",
+    "details": [
+      "Pipe installation and repairs",
+      "Tap and toilet repairs",
+      "Bathroom and kitchen installations",
+      "Water heater installation and repair",
+      "Drain cleaning",
+      "Leak detection and repair",
+      "Boiler servicing and repairs",
+      "Emergency plumbing services"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Lift Installation",
+    "description": "Specialized lift installation and maintenance services for buildings of all sizes.",
+    "icon": "Building2",
+    "details": [
+      "Passenger lift installation",
+      "Goods lift installation",
+      "Platform lifts",
+      "Lift modernization",
+      "Routine maintenance",
+      "Emergency repairs",
+      "Safety inspections and testing",
+      "Custom lift solutions"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Plastering & Joinery",
+    "description": "High-quality plastering and joinery services delivered by skilled craftsmen.",
+    "icon": "Settings2",
+    "details": [
+      "Plastering and skimming",
+      "Dry lining",
+      "Rendering",
+      "Custom carpentry",
+      "Door installation and repair",
+      "Fitted furniture",
+      "Kitchen installations",
+      "Timber flooring"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "24/7 Emergency Service",
+    "description": "Available around the clock for urgent maintenance and repairs.",
+    "icon": "Phone",
+    "isEmergency": true,
+    "phone": "02035760727"
+  }
+] 

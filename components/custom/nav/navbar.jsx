@@ -16,7 +16,7 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <span className="font-bold text-2xl text-business-800">ICIC</span>
-          <span className="hidden sm:inline text-lg text-business-700">Associates London</span>
+          <span className="hidden sm:inline text-lg text-business-700">Associates London LTD</span>
         </Link>
 
         {/* Desktop Navigation */}

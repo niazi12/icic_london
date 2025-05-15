@@ -1,177 +1,210 @@
 "use client"
 
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
-import { Wrench, Settings, Hammer, Construction, Building2 } from "lucide-react";
+import { Wrench, Settings, Hammer, Construction, Building2, Phone, MapPin } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import ServiceArea from "./ServiceArea";
+
+// Service data constants
+const SERVICES_DATA = [
+  {
+    id: "lift",
+    title: "Lift Installation & Maintenance",
+    description: "We specialize in lift installation and maintenance services, ensuring safe and efficient operation of lifts in various buildings and facilities across Greater London.",
+    icon: Building2,
+    items: [
+      "Passenger lift installation",
+      "Goods lift installation",
+      "Platform lifts",
+      "Lift modernization",
+      "Routine maintenance",
+      "Emergency repairs",
+      "Safety inspections and testing",
+      "Custom lift solutions"
+    ],
+    cta: "Request a Lift Service",
+    image: "https://images.unsplash.com/photo-1567449303078-57ad995bd17a?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    id: "electrical",
+    title: "Electrical Services",
+    description: "Our team of qualified electricians holds 18th Edition certification and provides comprehensive electrical installation and maintenance services for both domestic and commercial properties.",
+    icon: Wrench,
+    items: [
+      "Full electrical installations",
+      "Electrical safety inspections",
+      "Rewiring",
+      "Fault finding and repairs",
+      "Emergency electrical repairs",
+      "Lighting installations",
+      "Consumer unit upgrades",
+      "Commercial electrical work"
+    ],
+    cta: "Request an Electrical Service",
+    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    id: "plumbing",
+    title: "Plumbing Services",
+    description: "Our experienced plumbers deliver reliable and efficient solutions for all your plumbing needs, from minor repairs to complete installations for both residential and commercial properties.",
+    icon: Hammer,
+    items: [
+      "Pipe installation and repairs",
+      "Tap and toilet repairs",
+      "Bathroom and kitchen installations",
+      "Water heater installation and repair",
+      "Drain cleaning",
+      "Leak detection and repair",
+      "Boiler servicing and repairs",
+      "Emergency plumbing services"
+    ],
+    cta: "Request a Plumbing Service",
+    image: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?q=80&w=800&auto=format&fit=crop"
+  },
+  
+  {
+    id: "plastering",
+    title: "Plastering & Joinery",
+    description: "Our skilled craftsmen provide exceptional plastering and joinery services, delivering beautiful finishes and custom woodwork for both domestic and commercial properties.",
+    icon: Settings,
+    items: [
+      "Plastering and skimming",
+      "Dry lining",
+      "Rendering",
+      "Custom carpentry",
+      "Door installation and repair",
+      "Fitted furniture",
+      "Kitchen installations",
+      "Timber flooring"
+    ],
+    cta: "Request Plastering or Joinery",
+    image: "https://placehold.co/800x500/6366f1/white?text=Plastering+%26+Joinery"
+  }
+];
+
+const AREAS = [
+  "Central London",
+  "North London",
+  "East London",
+  "South London",
+  "West London",
+  "North West London",
+  "South East London",
+  "South West London"
+];
+
+// Components
+const ServiceCard = ({ service }) => {
+  const Icon = service.icon;
+  
+  return (
+    <Card className="h-full overflow-hidden group transition-all duration-300 hover:shadow-xl">
+      {service.image && (
+        <div className="relative h-48 overflow-hidden">
+          <div className="absolute inset-0 bg-business-900/20 z-10" />
+          <div className="absolute top-4 left-4 bg-business-50 p-2 rounded-md z-20">
+            <Icon className="w-6 h-6 text-business-700" />
+          </div>
+          <Image 
+            src={service.image} 
+            alt={service.title} 
+            width={600} 
+            height={400} 
+            className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-105"
+            unoptimized
+          />
+        </div>
+      )}
+      
+      <CardHeader>
+        <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
+        <CardDescription className="text-gray-600 mt-2">
+          {service.description}
+        </CardDescription>
+      </CardHeader>
+      
+      <CardContent>
+        <h3 className="font-semibold text-lg mb-2">Our services include:</h3>
+        <ul className="list-disc pl-5 mb-4 space-y-1">
+          {service.items?.map((item, index) => (
+            <li key={index} className="text-gray-700">{item}</li>
+          ))}
+        </ul>
+      </CardContent>
+      
+      <CardFooter>
+        <Button asChild className="w-full bg-business-700 hover:bg-business-800">
+          <Link href="/contact">{service.cta}</Link>
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+};
+
+
+          // src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" 
 
 const Services = () => {
   return (
-   
-      <main>
-        {/* Hero Section */}
-        <section className="bg-business-800 text-white py-16">
-          <div className="container mx-auto px-4">
-            <h1 className="text-4xl font-bold mb-4">Our Services</h1>
-            <p className="text-xl max-w-3xl">
-              We offer a comprehensive range of professional services for both domestic 
-              and commercial clients throughout Greater London.
-            </p>
-          </div>
-        </section>
-
-        {/* Services Grid */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-              <div>
-                <div className="bg-business-50 p-2 inline-block rounded-md mb-4">
-                  <Wrench className="w-6 h-6 text-business-700" />
-                </div>
-                <h2 className="text-3xl font-bold mb-4">Electrical Services</h2>
-                <p className="text-gray-700 mb-4">
-                  Our team of qualified electricians holds 18th Edition certification and provides 
-                  comprehensive electrical installation and maintenance services for both domestic 
-                  and commercial properties.
+    <main className="min-h-screen">
+      {/* Hero Section with Background Image */}
+      <section className="relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-business-900/90 to-business-800/80 z-10" />
+        <div className="relative h-[50vh] min-h-[400px]">
+          <Image
+            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop"
+            alt="Property Lifts Services"
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
+          <div className="absolute inset-0 flex items-center z-20">
+            <div className="container mx-auto px-4">
+              <div className="max-w-2xl">
+                <h1 className="text-5xl font-bold text-white mb-6">Our Services</h1>
+                <p className="text-xl text-white/90 max-w-3xl">
+                  We offer a comprehensive range of professional services for both domestic 
+                  and commercial clients throughout Greater London.
                 </p>
-                <h3 className="font-semibold text-lg mb-2">Our electrical services include:</h3>
-                <ul className="list-disc pl-5 mb-6 space-y-1">
-                  <li>Full electrical installations</li>
-                  <li>Electrical safety inspections</li>
-                  <li>Rewiring</li>
-                  <li>Fault finding and repairs</li>
-                  <li>Emergency electrical repairs</li>
-                  <li>Lighting installations</li>
-                  <li>Consumer unit upgrades</li>
-                  <li>Commercial electrical work</li>
-                </ul>
-                <Button asChild className="bg-business-700 hover:bg-business-800">
-                  <Link href="/contact">Request an Electrical Service</Link>
-                </Button>
               </div>
-              <div>
-                <div className="bg-business-50 p-2 inline-block rounded-md mb-4">
-                  <Hammer className="w-6 h-6 text-business-700" />
-                </div>
-                <h2 className="text-3xl font-bold mb-4">Plumbing Services</h2>
-                <p className="text-gray-700 mb-4">
-                  Our experienced plumbers deliver reliable and efficient solutions for all your 
-                  plumbing needs, from minor repairs to complete installations for both residential 
-                  and commercial properties.
-                </p>
-                <h3 className="font-semibold text-lg mb-2">Our plumbing services include:</h3>
-                <ul className="list-disc pl-5 mb-6 space-y-1">
-                  <li>Pipe installation and repairs</li>
-                  <li>Tap and toilet repairs</li>
-                  <li>Bathroom and kitchen installations</li>
-                  <li>Water heater installation and repair</li>
-                  <li>Drain cleaning</li>
-                  <li>Leak detection and repair</li>
-                  <li>Boiler servicing and repairs</li>
-                  <li>Emergency plumbing services</li>
-                </ul>
-                <Button asChild className="bg-business-700 hover:bg-business-800">
-                  <Link href="/contact">Request a Plumbing Service</Link>
-                </Button>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-              <div>
-                <div className="bg-business-50 p-2 inline-block rounded-md mb-4">
-                  <Building2 className="w-6 h-6 text-business-700" />
-                </div>
-                <h2 className="text-3xl font-bold mb-4">Lift Installation & Maintenance</h2>
-                <p className="text-gray-700 mb-4">
-                  We specialize in lift installation and maintenance services, ensuring safe and 
-                  efficient operation of lifts in various buildings and facilities across Greater London.
-                </p>
-                <h3 className="font-semibold text-lg mb-2">Our lift services include:</h3>
-                <ul className="list-disc pl-5 mb-6 space-y-1">
-                  <li>Passenger lift installation</li>
-                  <li>Goods lift installation</li>
-                  <li>Platform lifts</li>
-                  <li>Lift modernization</li>
-                  <li>Routine maintenance</li>
-                  <li>Emergency repairs</li>
-                  <li>Safety inspections and testing</li>
-                  <li>Custom lift solutions</li>
-                </ul>
-                <Button asChild className="bg-business-700 hover:bg-business-800">
-                  <Link href="/contact">Request a Lift Service</Link>
-                </Button>
-              </div>
-              <div>
-                <div className="bg-business-50 p-2 inline-block rounded-md mb-4">
-                  <Settings className="w-6 h-6 text-business-700" />
-                </div>
-                <h2 className="text-3xl font-bold mb-4">Plastering & Joinery</h2>
-                <p className="text-gray-700 mb-4">
-                  Our skilled craftsmen provide exceptional plastering and joinery services, 
-                  delivering beautiful finishes and custom woodwork for both domestic and 
-                  commercial properties.
-                </p>
-                <h3 className="font-semibold text-lg mb-2">Our services include:</h3>
-                <ul className="list-disc pl-5 mb-6 space-y-1">
-                  <li>Plastering and skimming</li>
-                  <li>Dry lining</li>
-                  <li>Rendering</li>
-                  <li>Custom carpentry</li>
-                  <li>Door installation and repair</li>
-                  <li>Fitted furniture</li>
-                  <li>Kitchen installations</li>
-                  <li>Timber flooring</li>
-                </ul>
-                <Button asChild className="bg-business-700 hover:bg-business-800">
-                  <Link href="/contact">Request Plastering or Joinery</Link>
-                </Button>
-              </div>
-            </div>
-
-            <div>
-              <div className="bg-business-50 p-2 inline-block rounded-md mb-4">
-                <Construction className="w-6 h-6 text-business-700" />
-              </div>
-              <h2 className="text-3xl font-bold mb-4">Building & Construction</h2>
-              <p className="text-gray-700 mb-4">
-                From renovations to new builds, our construction team has the knowledge and 
-                expertise to handle projects of all sizes with precision and quality.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Residential Services:</h3>
-                  <ul className="list-disc pl-5 space-y-1">
-                    <li>Home extensions</li>
-                    <li>Loft conversions</li>
-                    <li>Renovations and refurbishments</li>
-                    <li>Kitchen and bathroom installations</li>
-                    <li>Structural alterations</li>
-                    <li>Property maintenance</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Commercial Services:</h3>
-                  <ul className="list-disc pl-5 space-y-1">
-                    <li>Office fit-outs</li>
-                    <li>Shop front installations</li>
-                    <li>Commercial renovations</li>
-                    <li>Industrial building works</li>
-                    <li>Building maintenance</li>
-                    <li>Project management</li>
-                  </ul>
-                </div>
-              </div>
-              <Button asChild className="bg-business-700 hover:bg-business-800">
-                <Link href="/contact">Discuss Your Construction Project</Link>
-              </Button>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Emergency Services */}
-        <section className="py-16 bg-business-50">
-          <div className="container mx-auto px-4">
-            <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-100">
+      {/* Services Grid */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {SERVICES_DATA.map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* Emergency Services */}
+      <section className="py-20 bg-gradient-to-r from-business-50 to-business-100">
+        <div className="container mx-auto px-4">
+          <Card className="overflow-hidden border-none shadow-xl">
+            <div className="relative">
+              <div className="absolute inset-0 bg-business-900/10 z-10" />
+              <div className="relative h-48 md:h-64">
+                <Image 
+                  src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?q=80&w=1000&auto=format&fit=crop" 
+                  alt="24/7 Emergency Services" 
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
+            </div>
+            <CardContent className="p-8">
               <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                 <div>
                   <h2 className="text-3xl font-bold mb-4">24/7 Emergency Services</h2>
@@ -182,62 +215,50 @@ const Services = () => {
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <Button asChild size="lg" className="bg-business-700 hover:bg-business-800">
-                      <a href="tel:02035760727">Call Our Emergency Line</a>
+                      <a href="tel:02035760727" className="flex items-center gap-2">
+                        <Phone className="w-4 h-4" />
+                        Call Our Emergency Line
+                      </a>
                     </Button>
                     <Button asChild size="lg" variant="outline">
                       <Link href="/contact">Contact Us Online</Link>
                     </Button>
                   </div>
                 </div>
-                <div className="bg-business-50 p-6 rounded-lg text-center min-w-[250px]">
+                <div className="bg-business-50 p-6 rounded-lg text-center min-w-[250px] shadow-lg border border-business-100">
                   <p className="text-lg font-medium mb-2">Emergency Hotline</p>
-                  <p className="text-2xl font-bold text-business-700 mb-2">020 3576 0727</p>
-                  <p className="text-sm text-gray-600">Available 24/7</p>
+                  <p className="text-3xl font-bold text-business-700 mb-2">020 3576 0727</p>
+                  <p className="text-sm text-gray-600 flex items-center justify-center gap-1">
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-business-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-business-500"></span>
+                    </span>
+                    Available 24/7
+                  </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
-        {/* Coverage Area */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">Our Coverage Area</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              We provide services throughout Greater London, including all boroughs and surrounding areas.
-            </p>
-            <div className="bg-gray-100 rounded-lg p-8 max-w-4xl mx-auto">
-              <h3 className="text-xl font-bold mb-4">Serving All London Boroughs</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-left">
-                <div>Central London</div>
-                <div>North London</div>
-                <div>East London</div>
-                <div>South London</div>
-                <div>West London</div>
-                <div>North West London</div>
-                <div>South East London</div>
-                <div>South West London</div>
-              </div>
-            </div>
-          </div>
-        </section>
+      {/* Coverage Area */}
+      <ServiceArea />
 
-        {/* CTA */}
-        <section className="py-16 bg-business-700 text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Contact us today for a free quote on your project or to schedule a service call.
-              Our team is ready to assist you with all your needs.
-            </p>
-            <Button asChild size="lg" className="bg-white text-business-700 hover:bg-gray-100">
-              <Link href="/contact">Request a Quote</Link>
-            </Button>
-          </div>
-        </section>
-      </main>
-
-
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-r from-business-800 to-business-700 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Contact us today for a free quote on your project or to schedule a service call.
+            Our team is ready to assist you with all your needs.
+          </p>
+          <Button asChild size="lg" className="bg-white text-business-700 hover:bg-gray-100 hover:text-business-800 px-8 py-6 text-lg">
+            <Link href="/contact">Request a Free Quote</Link>
+          </Button>
+        </div>
+      </section>
+    </main>
   );
 };
 
