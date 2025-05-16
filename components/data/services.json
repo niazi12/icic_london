@@ -48,22 +48,6 @@
     ]
   },
   {
-    "id": 4,
-    "title": "Plastering & Joinery",
-    "description": "High-quality plastering and joinery services delivered by skilled craftsmen.",
-    "icon": "Settings2",
-    "details": [
-      "Plastering and skimming",
-      "Dry lining",
-      "Rendering",
-      "Custom carpentry",
-      "Door installation and repair",
-      "Fitted furniture",
-      "Kitchen installations",
-      "Timber flooring"
-    ]
-  },
-  {
     "id": 6,
     "title": "24/7 Emergency Service",
     "description": "Available around the clock for urgent maintenance and repairs.",
@@ -71,4 +55,4 @@
     "isEmergency": true,
     "phone": "02035760727"
   }
-] 
+]

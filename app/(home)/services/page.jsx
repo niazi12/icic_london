@@ -7,6 +7,8 @@ import { Wrench, Settings, Hammer, Construction, Building2, Phone, MapPin } from
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import ServiceArea from "./ServiceArea";
+import { cn } from "@/lib/utils";
+
 
 // Service data constants
 const SERVICES_DATA = [
@@ -62,27 +64,10 @@ const SERVICES_DATA = [
       "Emergency plumbing services"
     ],
     cta: "Request a Plumbing Service",
-    image: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?q=80&w=800&auto=format&fit=crop"
+    image: "/images/plumber.png"
+
   },
   
-  {
-    id: "plastering",
-    title: "Plastering & Joinery",
-    description: "Our skilled craftsmen provide exceptional plastering and joinery services, delivering beautiful finishes and custom woodwork for both domestic and commercial properties.",
-    icon: Settings,
-    items: [
-      "Plastering and skimming",
-      "Dry lining",
-      "Rendering",
-      "Custom carpentry",
-      "Door installation and repair",
-      "Fitted furniture",
-      "Kitchen installations",
-      "Timber flooring"
-    ],
-    cta: "Request Plastering or Joinery",
-    image: "https://placehold.co/800x500/6366f1/white?text=Plastering+%26+Joinery"
-  }
 ];
 
 const AREAS = [
@@ -189,58 +174,69 @@ const Services = () => {
       </section>
 
       {/* Emergency Services */}
-      <section className="py-20 bg-gradient-to-r from-business-50 to-business-100">
-        <div className="container mx-auto px-4">
-          <Card className="overflow-hidden border-none shadow-xl">
-            <div className="relative">
-              <div className="absolute inset-0 bg-business-900/10 z-10" />
-              <div className="relative h-48 md:h-64">
-                <Image 
-                  src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?q=80&w=1000&auto=format&fit=crop" 
-                  alt="24/7 Emergency Services" 
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
+      <section className="py-16 bg-gradient-to-r from-business-50 to-business-100">
+      <div className="container mx-auto px-4">
+        <Card className="overflow-hidden border-none shadow-xl">
+          <CardContent className="p-6 md:p-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="md:max-w-lg">
+                <h2 className="text-3xl font-bold mb-4 text-business-900">24/7 Emergency Services</h2>
+                <p className="text-gray-700 mb-6">
+                  We understand that emergencies don't happen on schedule. That's why our team
+                  is available 24 hours a day, 7 days a week to address urgent maintenance issues
+                  and breakdowns throughout Greater London.  We're here for you, whenever you need us.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-red-600 hover:bg-red-700 text-white border-none shadow-md"
+                  >
+                    <a
+                      href="tel:02035760727"
+                      className="flex items-center gap-2 font-semibold"
+                    >
+                      <Phone className="w-5 h-5" />
+                      Call Our Emergency Line
+                    </a>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="border-business-500 text-business-800 hover:bg-business-50/50">
+                    <Link href="/contact" className="font-medium">Contact Us Online</Link>
+                  </Button>
+                </div>
+              </div>
+              <div
+                className={cn(
+                  "p-6 rounded-xl text-center min-w-[280px] shadow-lg",
+                  "bg-white/90 backdrop-blur-md border border-business-100", // Refined style
+                  "transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl", // Add hover effect
+                )}
+              >
+                <p className="text-lg font-semibold mb-2 text-business-700">Emergency Hotline</p>
+                <p className="text-4xl font-bold text-red-600 mb-3">020 3576 0727</p>
+                <p
+                  className={cn(
+                    "text-sm text-gray-600 flex items-center justify-center gap-1.5",
+                    "font-medium", // Make the text a bit bolder
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "relative inline-flex h-3 w-3",
+                      "animate-pulse", // Keep the pulse for visual emphasis
+                    )}
+                  >
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                  </span>
+                  Available 24/7
+                </p>
               </div>
             </div>
-            <CardContent className="p-8">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                <div>
-                  <h2 className="text-3xl font-bold mb-4">24/7 Emergency Services</h2>
-                  <p className="text-gray-700 mb-6">
-                    We understand that emergencies don't happen on schedule. That's why our team 
-                    is available 24 hours a day, 7 days a week to address urgent maintenance issues 
-                    and breakdowns throughout Greater London.
-                  </p>
-                  <div className="flex flex-wrap gap-4">
-                    <Button asChild size="lg" className="bg-business-700 hover:bg-business-800">
-                      <a href="tel:02035760727" className="flex items-center gap-2">
-                        <Phone className="w-4 h-4" />
-                        Call Our Emergency Line
-                      </a>
-                    </Button>
-                    <Button asChild size="lg" variant="outline">
-                      <Link href="/contact">Contact Us Online</Link>
-                    </Button>
-                  </div>
-                </div>
-                <div className="bg-business-50 p-6 rounded-lg text-center min-w-[250px] shadow-lg border border-business-100">
-                  <p className="text-lg font-medium mb-2">Emergency Hotline</p>
-                  <p className="text-3xl font-bold text-business-700 mb-2">020 3576 0727</p>
-                  <p className="text-sm text-gray-600 flex items-center justify-center gap-1">
-                    <span className="relative flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-business-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-business-500"></span>
-                    </span>
-                    Available 24/7
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
 
       {/* Coverage Area */}
       <ServiceArea />
