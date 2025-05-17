@@ -50,10 +50,11 @@ const SERVICES_DATA = [
   },
   {
     id: "plumbing",
-    title: "Plumbing Services",
-    description: "Our experienced plumbers deliver reliable and efficient solutions for all your plumbing needs, from minor repairs to complete installations for both residential and commercial properties.",
+    title: "Plumbing and Joinery Services",
+    description: "Our skilled plumbers and joiners provide reliable, efficient solutions for all your plumbing and woodworking needs, from minor repairs to full installations for residential and commercial properties.",
     icon: Hammer,
     items: [
+      // Plumbing services
       "Pipe installation and repairs",
       "Tap and toilet repairs",
       "Bathroom and kitchen installations",
@@ -61,7 +62,15 @@ const SERVICES_DATA = [
       "Drain cleaning",
       "Leak detection and repair",
       "Boiler servicing and repairs",
-      "Emergency plumbing services"
+      "Emergency plumbing services",
+      // Joinery services
+      "Custom furniture and cabinetry",
+      "Door and window fitting",
+      "Wooden staircases and railings",
+      "Skirting boards and architraves",
+      "Wood repairs and restoration",
+      "Bespoke shelving and storage solutions",
+      "Workshop joinery and site installations"
     ],
     cta: "Request a Plumbing Service",
     image: "/images/plumber.png"

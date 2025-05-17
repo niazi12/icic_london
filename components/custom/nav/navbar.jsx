@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -29,6 +29,9 @@ export const Navbar = () => {
           </Link>
           <Link href="/services" className="text-gray-700 font-medium hover:text-business-600 transition-colors">
             Services
+          </Link>
+          <Link href="/career" className="text-gray-700 font-medium hover:text-business-600 transition-colors">
+            Career
           </Link>
           <Link href="/contact" className="text-gray-700 font-medium hover:text-business-600 transition-colors">
             Contact
@@ -74,6 +77,13 @@ export const Navbar = () => {
               Services
             </Link>
             <Link 
+              href="/career" 
+              className="px-4 py-2 text-gray-700 font-medium hover:bg-gray-50 rounded-md"
+              onClick={toggleMenu}
+            >
+              Career
+            </Link>
+            <Link 
               href="/contact" 
               className="px-4 py-2 text-gray-700 font-medium hover:bg-gray-50 rounded-md"
               onClick={toggleMenu}
@@ -92,5 +102,3 @@ export const Navbar = () => {
     </header>
   );
 };
-
-

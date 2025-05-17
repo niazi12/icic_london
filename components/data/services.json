@@ -17,7 +17,7 @@
   },
   {
     "id": 2,
-    "title": "Plumbing Services",
+    "title": "Plumbing and Joinery Services",
     "description": "Expert plumbing installation and repairs for residential and commercial properties.",
     "icon": "Hammer",
     "details": [
@@ -28,7 +28,15 @@
       "Drain cleaning",
       "Leak detection and repair",
       "Boiler servicing and repairs",
-      "Emergency plumbing services"
+      "Emergency plumbing services",
+      "Custom furniture and cabinetry",
+      "Door and window fitting",
+      "Wooden staircases and railings",
+      "Skirting boards and architraves",
+      "Wood repairs and restoration",
+      "Bespoke shelving and storage solutions",
+      "Workshop joinery and site installations"
+      
     ]
   },
   {
