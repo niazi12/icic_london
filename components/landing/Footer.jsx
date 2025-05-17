@@ -42,6 +42,9 @@ const Footer = () => {
                 <Link href="/services" className="hover:text-business-300 transition-colors">Our Services</Link>
               </li>
               <li>
+                <Link href="/career" className="hover:text-business-300 transition-colors">Career</Link>
+              </li>
+              <li>
                 <Link href="/contact" className="hover:text-business-300 transition-colors">Contact Us</Link>
               </li>
             </ul>
@@ -51,10 +54,9 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Our Services</h3>
             <ul className="space-y-2">
-              <li>Electrical Installation & Maintenance</li>
-              <li>Plumbing Services</li>
               <li>Lift Installation & Maintenance</li>
-              <li>Building & Construction</li>
+              <li>Electrical Installation & Maintenance</li>
+              <li>Plumbing and Joinery Services</li>
             </ul>
           </div>
         </div>
