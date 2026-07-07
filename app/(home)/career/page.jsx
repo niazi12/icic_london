@@ -167,12 +167,12 @@ const Career = () => {
             </p>
 
             <motion.a
-              href="mailto:kamrul@icic.london"
+              href="mailto:iciclondon8@gmail.com"
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-2 bg-business-700 hover:bg-business-800 transition text-white font-medium py-3 px-6 rounded-full text-lg"
             >
               <Send className="w-5 h-5" />
-              Email Your CV to kamrul@icic.london
+              Email Your CV to iciclondon8@gmail.com
             </motion.a>
 
             <p className="text-gray-500 mt-4">
